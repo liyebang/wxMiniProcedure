@@ -5,11 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      "http://img2.imgtn.bdimg.com/it/u=1353877914,2272011194&fm=26&gp=0.jpg",
-      "http://img1.imgtn.bdimg.com/it/u=1458888286,673355229&fm=26&gp=0.jpg",
-      "http://img2.imgtn.bdimg.com/it/u=2133019295,1525250475&fm=26&gp=0.jpg"
-    ]
+    //轮播图数据
+    carousellist:[],
+    //导航栏数据
+    navlist:[]
   },
 
   /**
@@ -18,6 +17,8 @@ Page({
   onLoad: function (options) {
     //调用获取轮播图数据的方法
     this.getCarouselData();
+    //调用获取导航栏数据的方法
+    this.getNavData();
   },
 
   //获取轮播图数据
@@ -27,7 +28,20 @@ Page({
       success: res =>{
         let { message } = res.data;
         this.setData({
-          list: message
+          carousellist: message
+        })
+      }
+    })
+  },
+
+  //获取导航栏数据
+  getNavData(){
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/catitems',
+      success: res => {
+        let { message } = res.data;
+        this.setData({
+          navlist: message
         })
       }
     })
