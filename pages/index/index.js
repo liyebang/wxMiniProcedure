@@ -8,7 +8,9 @@ Page({
     //轮播图数据
     carousellist:[],
     //导航栏数据
-    navlist:[]
+    navlist:[],
+    //推荐楼层数据
+    floorlist:[]
   },
 
   /**
@@ -19,6 +21,8 @@ Page({
     this.getCarouselData();
     //调用获取导航栏数据的方法
     this.getNavData();
+    //调用获取推荐楼层数据的方法
+    this.getFloorData();
   },
 
   //获取轮播图数据
@@ -42,6 +46,20 @@ Page({
         let { message } = res.data;
         this.setData({
           navlist: message
+        })
+      }
+    })
+  },
+
+  //获取推荐楼层数据
+  getFloorData(){
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
+      success: res => {
+        let { message } = res.data;
+        console.log(message);
+        this.setData({
+          floorlist: message
         })
       }
     })

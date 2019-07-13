@@ -28,3 +28,28 @@
   </block>
 </view>
 
+<!-- 推荐楼层列表 -->
+<view class="floor">
+  <block wx:for="{{ floorlist }}" wx:key="{{ index }}">
+    <view class="floor-item">
+      <view class="floor-item-title">
+        <image class="floor-item-title-img" src="{{ item.floor_title.image_src }}"></image>
+      </view>
+      <view class="floor-item-content">
+        <view class="floor-item-content-left">
+          <image class="floor-item-content-left-img" src="{{ item.product_list[0].image_src }}"></image>
+        </view>
+        <view class="floor-item-content-right">
+          <block wx:for="{{ item.product_list }}" wx:key="{{ index }}" wx:for-item="item2" wx:for-index="index2">
+            <view class="floor-item-content-right-item">
+              <image wx:if="{{ index2 > 0 }}" class="floor-item-content-right-item-img" src="{{ item2.image_src }}"></image>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+
+<!-- 回到顶部工具 -->
