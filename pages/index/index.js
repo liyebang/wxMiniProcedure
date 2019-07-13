@@ -10,7 +10,9 @@ Page({
     //导航栏数据
     navlist:[],
     //推荐楼层数据
-    floorlist:[]
+    floorlist:[],
+    //回到顶部工具栏的显示状态
+    isShow: true
   },
 
   /**
@@ -57,7 +59,6 @@ Page({
       url: 'https://api.zbztb.cn/api/public/v1/home/floordata',
       success: res => {
         let { message } = res.data;
-        console.log(message);
         this.setData({
           floorlist: message
         })
@@ -112,5 +113,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 回到顶部
+  toTop(e){
+    //取出存入的参数
+    const { top } = e.currentTarget.dataset;
+    // 页面滚动方法
+    wx.pageScrollTo({
+      scrollTop: top,
+      duration: 300
+    })
+  },
+
+  //监视用户下拉
+  onPageScroll(e){
+    let { scrollTop } = e;
+    if (scrollTop > 150){
+      this.setData({ isShow: false })
+    }else{
+      this.setData({ isShow: true })
+    }
   }
 })

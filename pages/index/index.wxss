@@ -52,3 +52,17 @@
   margin-left: 7rpx;
   border-radius: 10rpx;
 }
+
+/* 回到顶部工具栏 */
+.toTopTool{
+  background-color: rgba(255, 255, 255, .7);
+  /* background-color: red; */
+  border-radius: 50%;
+  width: 86rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  text-align: center;
+  position: fixed;
+  right: 20rpx;
+  bottom: 90rpx;
+}

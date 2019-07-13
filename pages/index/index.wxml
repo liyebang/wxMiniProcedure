@@ -53,3 +53,11 @@
 
 
 <!-- 回到顶部工具 -->
+<view 
+  class="toTopTool" 
+  hidden="{{ isShow }}"
+  bindtap="toTop"
+  data-top="{{ 0 }}"
+>
+  <text>顶部</text>
+</view>
