@@ -1,9 +1,4 @@
 <!-- 头部 -->
-<view class="header">
-  <navigator url="/pages/search/search">
-    <icon type="search" size="30rpx"/>
-    <text>搜索</text>
-  </navigator>
-</view>
+<Search></Search>
 
 <view>这是分类页面</view>
