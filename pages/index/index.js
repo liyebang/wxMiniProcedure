@@ -16,7 +16,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //调用获取轮播图数据的方法
+    this.getCarouselData();
+  },
 
+  //获取轮播图数据
+  getCarouselData(){
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+      success: res =>{
+        let { message } = res.data;
+        this.setData({
+          list: message
+        })
+      }
+    })
   },
 
   /**
