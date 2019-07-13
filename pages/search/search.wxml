@@ -1,0 +1,9 @@
+<!-- 头部 -->
+<view class="header">
+  <view class="search-input">
+    <icon type="search"></icon>
+    <input placeholder="请输入你想要的商品" value="{{ serachIpunt }}"  confirm-type="search"/>
+  </view>
+  <button size="mini" wx:if="{{ serachIpunt !== '' }}">取消</button>
+</view>
+

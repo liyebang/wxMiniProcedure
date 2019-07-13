@@ -1,0 +1,71 @@
+<!-- 头部 -->
+<view class="header">
+  <navigator url="/pages/search/search">
+    <icon type="search" size="30rpx"/>
+    <text>搜索</text>
+  </navigator>
+</view>
+
+<!-- 轮播图 -->
+<view>
+  <swiper 
+    indicator-dots
+    indicator-color="rgba(255,255,255,.3)"
+    indicator-active-color="#fff"
+    autoplay
+    interval="2500"
+    class="carousel"
+  >
+    <block wx:for="{{ list }}" wx:key="{{ item }}">
+      <swiper-item>
+        <image src="{{ item }}" mode="widthFix"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<!-- 导航栏 -->
+<view class="nav">
+  <view class="nav-item">
+    <image></image>
+    <text>分类</text>
+  </view>
+  <view class="nav-item">
+    <image></image>
+    <text>秒杀拍</text>
+  </view>
+  <view class="nav-item">
+    <image></image>
+    <text>超市购</text>
+  </view>
+  <view class="nav-item">
+    <image></image>
+    <text>母婴品</text>
+  </view>
+</view>
+
+<!-- 女装 -->
+<view class="women-clothes">
+  <view class="title"></view>
+  <view class="content">
+    <view class="content-item content-big">
+      <image></image>
+    </view>
+    <view class="content-item content-small">
+      <view>
+        <image></image>
+      </view>
+      <view>
+        <image></image>
+      </view>
+    </view>
+    <view class="content-item content-small">
+      <view>
+        <image></image>
+      </view>
+      <view>
+        <image></image>
+      </view>
+    </view>
+  </view>
+</view>
