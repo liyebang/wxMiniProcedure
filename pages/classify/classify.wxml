@@ -1,4 +1,31 @@
 <!-- 头部 -->
 <Search></Search>
 
-<view>这是分类页面</view>
+<!-- 头部以下内容 -->
+<view class="content">
+  <!-- 分类列表 -->
+  <scroll-view scroll-y class="classify">
+    <block wx:for="{{ classifylist }}" wx:key="{{ cat_id }}">
+      <view class="classify-item {{ activeIndex === index? 'active': '' }}">
+        {{ item.cat_name }}
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- 分类具体内容 -->
+  <scroll-view scroll-y class="info">
+    <block>
+      <view class="info-item">
+        <view class="info-item-title">电视</view>
+        <view class="info-item-content">
+          <block wx:for="{{ 30 }}" wx:key="">
+            <view class="info-item-content-item">
+              <image class="info-item-content-item-img"></image>
+              <view class="info-item-content-item-text">{{ index }}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

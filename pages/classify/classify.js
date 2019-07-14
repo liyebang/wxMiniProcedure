@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //分类列表
+    classifylist:[],
+    //活跃项的索引
+    activeIndex: 0,
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getClassifyData()
+  },
 
+  //获取分类列表
+  getClassifyData(){
+    wx.request({
+      url: 'https://api.zbztb.cn/api/public/v1/categories',
+      success: res => {
+        let { message } = res.data;
+        console.log(message);
+        this.setData({ classifylist: message })
+      }
+    })
   },
 
   /**

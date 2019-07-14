@@ -1,0 +1,73 @@
+/* 左边样式 */
+.classify{
+  position: absolute;
+  top: 96rpx;
+  bottom: 0;
+  left: 0;
+  width: 200rpx;
+}
+
+.classify-item{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.classify-item.active{
+  background-color: #fff;
+}
+
+.classify-item.active::after {
+  content: "";
+  position: absolute;
+  top: 20rpx;
+  bottom: 20rpx;
+  left: 0;
+  width: 8rpx;
+  background-color: #eb4450;
+}
+
+/* 右边样式 */
+.info{
+  position: absolute;
+  top: 96rpx;
+  bottom: 0;
+  left: 200rpx;
+  width: 550rpx;
+  background-color: greenyellow;
+}
+
+.info-item-title{
+  text-align: center;
+  margin: 20rpx;
+}
+
+.info-item-title::after,
+.info-item-title::before{
+  content: "/";
+  color: #eee;
+  margin: 0 20rpx;
+}
+
+.info-item-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.info-item-content-item{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-item-content-item-img{
+  width: 120rpx;
+  height: 120rpx;
+  background-color: blue;
+}

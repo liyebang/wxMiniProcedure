@@ -1,4 +1,4 @@
 /**app.wxss**/
-img{
+image{
   display: block;
 }
