@@ -6,7 +6,10 @@
   <!-- 分类列表 -->
   <scroll-view scroll-y class="classify">
     <block wx:for="{{ classifylist }}" wx:key="{{ cat_id }}">
-      <view class="classify-item {{ activeIndex === index? 'active': '' }}">
+      <view 
+      class="classify-item {{ activeIndex === index? 'active': '' }}"
+      bindtap="changeActiveIndex"
+      data-index="{{ index }}">
         {{ item.cat_name }}
       </view>
     </block>
@@ -14,15 +17,28 @@
 
   <!-- 分类具体内容 -->
   <scroll-view scroll-y class="info">
-    <block>
+    <block wx:for="{{ infolist }}" wx:key="cat_id">
       <view class="info-item">
-        <view class="info-item-title">电视</view>
+        <view class="info-item-title">{{item.cat_name}}</view>
         <view class="info-item-content">
-          <block wx:for="{{ 30 }}" wx:key="">
-            <view class="info-item-content-item">
-              <image class="info-item-content-item-img"></image>
-              <view class="info-item-content-item-text">{{ index }}</view>
-            </view>
+          <block 
+          wx:for="{{ item.children }}" 
+          wx:key="cat_id"
+          wx:for-item="item2"
+          wx:for-index="index2"
+          >
+            <navigator 
+            class="info-item-content-item"
+            url="/pages/goodslist/goodslist?keyword={{ item2.cat_name }}"
+            hover-class="none"
+            >
+              <image 
+              class="info-item-content-item-img"
+              src="{{ item2.cat_icon }}"></image>
+              <view class="info-item-content-item-text">
+                {{ item2.cat_name }}
+              </view>
+            </navigator>
           </block>
         </view>
       </view>

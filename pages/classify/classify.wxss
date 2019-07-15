@@ -38,7 +38,6 @@
   bottom: 0;
   left: 200rpx;
   width: 550rpx;
-  background-color: greenyellow;
 }
 
 .info-item-title{
@@ -64,10 +63,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30rpx;
 }
 
 .info-item-content-item-img{
   width: 120rpx;
   height: 120rpx;
-  background-color: blue;
+  margin-bottom: 5rpx;
 }

@@ -1,4 +1,6 @@
-// pages/search/search.js
+// 引入封装好的发送请求的函数
+const { request } = require("../../utils/request.js");
+
 Page({
 
   /**
@@ -9,24 +11,41 @@ Page({
     classifylist:[],
     //活跃项的索引
     activeIndex: 0,
+    //右边分类详情
+    infolist:[]
   },
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getClassifyData()
+    this.getClassifyData();
   },
 
   //获取分类列表
   getClassifyData(){
-    wx.request({
-      url: 'https://api.zbztb.cn/api/public/v1/categories',
-      success: res => {
-        let { message } = res.data;
-        console.log(message);
-        this.setData({ classifylist: message })
-      }
+    // wx.request({
+    //   url: 'https://api.zbztb.cn/api/public/v1/categories',
+    //   success: res => {
+    //     let { message } = res.data;
+    //     console.log(message);
+    //     this.setData({ classifylist: message })
+    //   }
+    // })
+    request({ url: "categories" }).then( res => {
+      this.setData({ 
+        classifylist: res,
+        infolist: res[0].children
+      })
+    })
+  },
+
+  // 切换左边分类
+  changeActiveIndex(e){
+    let { index } = e.currentTarget.dataset;
+    this.setData({
+      activeIndex: index,
+      infolist: this.data.classifylist[index].children
     })
   },
 
