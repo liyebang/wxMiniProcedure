@@ -50,11 +50,9 @@
   margin-right: 26rpx;
   width: 200rpx;
   height: 200rpx;
-  background-color: red;
 }
 
 .content-goods-item-info{
-  background-color: yellow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -13,6 +13,7 @@ const request = obj => {
 
     // 发送请求
     wx.request({
+      ...obj,
       url: baseURL + obj.url,
       success: res => {
         let { message } = res.data;

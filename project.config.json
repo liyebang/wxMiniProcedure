@@ -43,10 +43,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "pages/goodslist/goodslist",
 					"pathName": "pages/goodslist/goodslist",
-					"query": "keyword=曲面电视",
+					"query": "keyword=华为",
 					"scene": null
 				}
 			]

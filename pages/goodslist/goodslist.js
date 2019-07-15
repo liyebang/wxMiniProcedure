@@ -1,4 +1,5 @@
-// pages/goodslist/goodslist.js
+const { request } = require("../../utils/request.js");
+
 Page({
 
   /**
@@ -8,7 +9,9 @@ Page({
     // 页面参数
     keyword: "",
     // 导航菜单索引
-    navindex: 0
+    navindex: 0,
+    // 渲染的商品列表
+    goodslist:[]
   },
 
   /**
@@ -17,6 +20,11 @@ Page({
   onLoad: function (options) {
     let { keyword } = options;
     this.setData({ keyword });
+    request({ url: "goods/search", data: { query: keyword } })
+    .then( res =>{
+      let { goods } = res;
+      this.setData({ goodslist: goods });
+    })
   },
 
   /**
