@@ -1,2 +1,34 @@
-<!--pages/goodslist/goodslist.wxml-->
-<text>pages/goodslist/goodslist.wxml</text>
+<!-- 头部 -->
+<view class="header">
+  <view class="header-content">
+    <icon type="search" size="24"></icon>
+    <text>{{ keyword }}</text>
+  </view>
+</view>
+
+<!-- 内容 -->
+<view class="content">
+  <!-- 导航栏 -->
+  <view class="content-nav">
+    <view class="content-nav-item {{ navindex === 0? 'active': '' }}">综合</view>
+    <view class="content-nav-item {{ navindex === 1? 'active': '' }}">销量</view>
+    <view class="content-nav-item {{ navindex === 2? 'active': '' }}">价格</view>
+  </view>
+  <!-- 详情 -->
+  <view class="content-goods">
+    <block>
+      <view class="content-goods-item">
+        <view>
+          <image class="content-goods-item-img"></image>
+        </view>
+        <view class="content-goods-item-info">
+          <view class="content-goods-item-info-title">紫米ZMI 小米QC3.0快充车充 5V2.4A双USB智能输出 一拖二手机平板通用汽车充电器 AP821 银色</view>
+          <view class="content-goods-item-info-price">
+            ￥
+            <text class="content-goods-item-info-price-num">69</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
