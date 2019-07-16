@@ -29,12 +29,12 @@
           >
             <navigator 
             class="info-item-content-item"
-            url="/pages/goodslist/goodslist?keyword={{ item2.cat_name }}"
+            url="/pages/goodslist/goodslist?keyword={{ item2.cat_name }}&cid={{ item2.cat_id }}"
             hover-class="none"
             >
               <image 
               class="info-item-content-item-img"
-              src="{{ item2.cat_icon }}"></image>
+              src="{{ item2.cat_icon || '/images/defalut.png' }}"></image>
               <view class="info-item-content-item-text">
                 {{ item2.cat_name }}
               </view>

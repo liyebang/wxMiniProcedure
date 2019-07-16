@@ -1,9 +1,12 @@
 <!-- 头部 -->
 <view class="header">
-  <view class="header-content">
+  <navigator 
+  class="header-content" 
+  url="/pages/search/search?keyword={{ keyword }}"
+  hover-class="none">
     <icon type="search" size="24"></icon>
     <text>{{ keyword }}</text>
-  </view>
+  </navigator>
 </view>
 
 <!-- 内容 -->
@@ -21,7 +24,7 @@
         <view>
           <image 
           class="content-goods-item-img"
-          src="{{ item.goods_small_logo }}"
+          src="{{ item.goods_small_logo || '/images/default.png' }}"
           ></image>
         </view>
         <view class="content-goods-item-info">

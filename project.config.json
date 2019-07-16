@@ -43,10 +43,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": 0,
+					"id": -1,
 					"name": "pages/goodslist/goodslist",
 					"pathName": "pages/goodslist/goodslist",
-					"query": "keyword=华为",
+					"query": "keyword=小米&cid=12",
 					"scene": null
 				}
 			]
