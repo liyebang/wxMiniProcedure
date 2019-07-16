@@ -25,3 +25,52 @@
   border-radius: 20rpx;
   line-height: 74rpx;
 }
+
+/* 历史搜索 */
+.history{
+  padding: 0 16rpx;
+}
+
+.history-title{
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-title-text{
+  font-size: 40rpx;
+}
+
+.history-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.history-content-item{
+  padding: 20rpx 25rpx;
+  background-color: #ddd;
+  margin: 0 30rpx 18rpx 0;
+}
+
+
+/* 搜索提示 */
+.tips{
+  position: absolute;
+  top: 100rpx;
+  left: 80rpx;
+  z-index: 99;
+  background-color: #f2f2f2;
+  max-height: 510rpx;
+  overflow: auto;
+}
+
+.tips-content-item{
+  border-bottom: 1rpx solid #ddd;
+  line-height: 60rpx;
+  padding: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 475rpx;
+}

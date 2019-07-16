@@ -2,8 +2,40 @@
 <view class="header">
   <view class="search-input">
     <icon type="search"></icon>
-    <input placeholder="请输入你想要的商品" value="{{ serachIpunt }}"  confirm-type="search"/>
+    <input 
+    placeholder="请输入你想要的商品" 
+    value="{{ serachIpunt }}"  
+    confirm-type="search"
+    bindinput="serachIpuntChange"
+    bindconfirm="inputSumbit"/>
   </view>
   <button size="mini" wx:if="{{ serachIpunt !== '' }}">取消</button>
 </view>
 
+<!-- 历史搜索 -->
+<view class="history">
+  <view class="history-title" wx:if="{{ historylist.length !== 0 }}">
+    <text class="history-title-text">历史搜索</text>
+    <icon 
+    class="history-title-icon" 
+    type="clear" 
+    size="15"
+    bindtap="clearHistory"></icon>
+  </view>
+  <view class="history-content">
+    <block wx:for="{{ historylist }}" wx:key="*this">
+      <view class="history-content-item">{{ item }}</view>
+    </block>
+  </view>
+</view>
+
+<!-- 搜索框提示 -->
+<view class="tips" hidden="{{ serachIpunt === '' }}">
+  <view class="tips-content">
+    <block wx:for="{{ tipslist }}" wx:key="">
+      <view class="tips-content-item">
+        {{ item.goods_name }} 
+      </view>
+    </block>
+  </view>
+</view>

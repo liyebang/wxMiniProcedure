@@ -40,16 +40,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/goodslist/goodslist",
-					"pathName": "pages/goodslist/goodslist",
-					"query": "keyword=小米&cid=12",
-					"scene": null
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }
