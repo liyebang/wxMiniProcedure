@@ -44,9 +44,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/search/search",
-					"pathName": "pages/search/search",
-					"query": "keyword=小米",
+					"name": "pages/goodsinfo/goodsinfo",
+					"pathName": "pages/goodsinfo/goodsinfo",
+					"query": "goods_id=31034",
 					"scene": null
 				}
 			]

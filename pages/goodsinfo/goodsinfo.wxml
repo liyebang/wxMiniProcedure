@@ -1,2 +1,56 @@
-<!--pages/goodsinfo/goodsinfo.wxml-->
-<text>pages/goodsinfo/goodsinfo.wxml</text>
+<!-- 轮播图 -->
+<swiper 
+  class="carousel"
+  autoplay
+  indicator-dots
+  circular
+  interval="2000"
+>
+  <block wx:for="{{ 3 }}" wx:key="">
+    <swiper-item>
+      <image class="carousel-item-img"  src="http://image1.suning.cn/uimg/b2c/newcatentries/0070144040-000000000140952510_2_800x800.jpg"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 商品详细内容 -->
+<view class="goodsinfo">
+
+  <view class="goodsinfo-price">￥222</view>
+
+  <view class="goodsinfo-title">
+    <view class="goodsinfo-title-text">普联（TP-LINK） TL-SG1008D 8口千兆交换机 千兆钢壳1000M网络监控交换机</view>
+    <view class="goodsinfo-title-collect">
+      <icon class="goodsinfo-title-collect-icon" type="search"></icon>
+      <text class="goodsinfo-title-collect-text">收藏</text>
+    </view>
+  </view>
+
+  <view class="goodsinfo-type">快递: 免运费</view>
+
+  <view class="goodsinfo-richtext">
+    <view>图片详情</view>
+    <rich-text nodes='<div class=\"lazyimg\"><p><img data-src=\"//image.suning.cn/uimg/sop/richtext/153258883012390448514464.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/153258883012390448514464.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/187379396283244284595910.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/187379396283244284595910.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/330226174196853549816760.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/330226174196853549816760.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/147793003286806540496200.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/147793003286806540496200.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/113025839021063066745489.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/113025839021063066745489.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/121693045635991262691710.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/121693045635991262691710.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/636668999907206545539900.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/636668999907206545539900.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/603167757830963862520000.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/603167757830963862520000.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/130619400016942688218452.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/130619400016942688218452.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/177224012528849617737010_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/177224012528849617737010_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/173042226613348206794360_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/173042226613348206794360_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/416579077129509746521810_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/416579077129509746521810_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"></p></div>'></rich-text>
+  </view>
+</view>
+
+
+<!-- 占位用容器 -->
+<view style="height: 100rpx"></view>
+
+
+<!-- 底部工具栏 -->
+<view class="tool"> 
+  <view class="tool-icon">
+    <!-- 透明的按钮 -->
+    <button  class="tool-icon-button" open-type="contact">练习客服</button>
+    <icon type="search"></icon>
+    <view>联系客服</view>
+  </view>
+  <view class="tool-icon">
+    <icon type="search"></icon>
+    <view>购物车</view>
+  </view>
+  <view class="tool-button">加入购物车</view>
+  <view class="tool-button">立即购买</view>
+</view>
