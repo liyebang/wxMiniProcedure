@@ -40,6 +40,10 @@
   align-items: center;
 }
 
+.goodsinfo-title-collect-icon{
+  font-size: 40rpx;
+}
+
 .goodsinfo-type{
   color:#999;
   padding: 32rpx 0;
@@ -91,4 +95,8 @@
   left: 0;
   top: 0;
   opacity: 0
+}
+
+.tool-icon-iconfont{
+  font-size: 50rpx;
 }

@@ -21,7 +21,7 @@
   <view class="goodsinfo-title">
     <view class="goodsinfo-title-text">普联（TP-LINK） TL-SG1008D 8口千兆交换机 千兆钢壳1000M网络监控交换机</view>
     <view class="goodsinfo-title-collect">
-      <icon class="goodsinfo-title-collect-icon" type="search"></icon>
+      <text class="goodsinfo-title-collect-icon iconfont icon-shoucang"></text>
       <text class="goodsinfo-title-collect-text">收藏</text>
     </view>
   </view>
@@ -44,11 +44,11 @@
   <view class="tool-icon">
     <!-- 透明的按钮 -->
     <button  class="tool-icon-button" open-type="contact">练习客服</button>
-    <icon type="search"></icon>
+    <text class="tool-icon-iconfont iconfont icon-lianxikefu"></text>
     <view>联系客服</view>
   </view>
   <view class="tool-icon">
-    <icon type="search"></icon>
+    <text class="tool-icon-iconfont iconfont icon-gouwuche"></text>
     <view>购物车</view>
   </view>
   <view class="tool-button">加入购物车</view>
