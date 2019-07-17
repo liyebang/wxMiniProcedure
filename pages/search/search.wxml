@@ -24,7 +24,13 @@
   </view>
   <view class="history-content">
     <block wx:for="{{ historylist }}" wx:key="*this">
-      <view class="history-content-item">{{ item }}</view>
+      <navigator 
+      class="history-content-item"
+      url="/pages/goodslist/goodslist?keyword={{ item }}"
+      hover-class="none"
+      open-type="redirect">
+        {{ item }}
+      </navigator>
     </block>
   </view>
 </view>
@@ -33,9 +39,13 @@
 <view class="tips" hidden="{{ serachIpunt === '' }}">
   <view class="tips-content">
     <block wx:for="{{ tipslist }}" wx:key="">
-      <view class="tips-content-item">
+      <navigator 
+      class="tips-content-item"
+      hover-class="none"
+      url="/pages/goodsinfo/goodsinfo?goods_id={{ item.goods_id }}"
+      >
         {{ item.goods_name }} 
-      </view>
+      </navigator>
     </block>
   </view>
 </view>

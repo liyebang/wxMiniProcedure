@@ -3,6 +3,7 @@
   <navigator 
   class="header-content" 
   url="/pages/search/search?keyword={{ keyword }}"
+  open-type="redirect"
   hover-class="none">
     <icon type="search" size="24"></icon>
     <text>{{ keyword }}</text>

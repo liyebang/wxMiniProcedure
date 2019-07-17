@@ -40,8 +40,16 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
+					"query": "keyword=小米",
+					"scene": null
+				}
+			]
 		}
 	}
 }

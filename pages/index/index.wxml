@@ -3,7 +3,8 @@
 
 <!-- 轮播图 -->
 <view>
-  <swiper 
+  <swiper
+    circular 
     indicator-dots
     indicator-color="rgba(255,255,255,.3)"
     indicator-active-color="#fff"

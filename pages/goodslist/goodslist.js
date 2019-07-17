@@ -33,12 +33,20 @@ Page({
     //   let { goods } = res;
     //   this.setData({ goodslist: goods });
     // })
-    this.getListData({
+
+    let data = {
       query: keyword,
       cid,
       pagenum: this.data.pagenum,
       pagesize: this.data.pagesize
-    })
+    }
+
+    // 从历史搜索过来不会传cid，所以要把cid删除
+    if (!data.cid){
+      delete data.cid
+    }
+
+    this.getListData(data)
   },
 
   /**

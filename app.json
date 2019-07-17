@@ -5,7 +5,8 @@
     "pages/classify/classify",
     "pages/mine/mine",
     "pages/search/search",
-    "pages/goodslist/goodslist"
+    "pages/goodslist/goodslist",
+    "pages/goodsinfo/goodsinfo"
   ],
   "window": {
     "backgroundTextStyle": "dark",

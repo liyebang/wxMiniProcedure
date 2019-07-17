@@ -22,7 +22,6 @@
 }
 
 .header button{
-  border-radius: 20rpx;
   line-height: 74rpx;
 }
 

@@ -1,5 +1,8 @@
 const { request } = require("../../utils/request.js");
 
+// 定义一个变量来存储定时器
+let timer;
+
 Page({
 
   /**
@@ -18,7 +21,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { keyword } = options;
+    let keyword;
+
+    if (options.keyword){
+      keyword = options.keyword;
+    }else{
+      keyword = ""
+    }
+    
     // 获取本地存储的历史搜索信息，如没有则为空数组
     let historylist = wx.getStorageSync("historylist") || [];
     this.setData({ serachIpunt: keyword, historylist });
@@ -78,12 +88,18 @@ Page({
     let { value } = e.detail;
     this.setData({ serachIpunt: value })
 
-    if(this.data.serachIpunt !== ''){
-      request({ url: "goods/qsearch", data: { query: this.data.serachIpunt } })
-      .then( res => {
-        this.setData({ tipslist: res })
-      })
-    }
+    // 先清掉上一个定时器
+    clearTimeout(timer)
+
+    // 利用定时器减少发起请求的次数，减少服务器压力
+    timer = setTimeout( () =>{
+      if (this.data.serachIpunt !== '') {
+        request({ url: "goods/qsearch", data: { query: this.data.serachIpunt } })
+          .then(res => {
+            this.setData({ tipslist: res })
+          })
+      }
+    },700)
 
   },
 
@@ -107,6 +123,10 @@ Page({
 
     // 保存到本地
     wx.setStorageSync("historylist", this.data.historylist);
+
+    wx.redirectTo({
+      url: `/pages/goodslist/goodslist?keyword=${this.data.serachIpunt}`
+    })
   },
 
   // 清除搜索历史记录
