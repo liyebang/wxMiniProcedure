@@ -6,9 +6,13 @@
   circular
   interval="2000"
 >
-  <block wx:for="{{ 3 }}" wx:key="">
+  <block wx:for="{{ goodsinfo.pics }}" wx:key="pics_id">
     <swiper-item>
-      <image class="carousel-item-img"  src="http://image1.suning.cn/uimg/b2c/newcatentries/0070144040-000000000140952510_2_800x800.jpg"></image>
+      <image 
+      class="carousel-item-img"  
+      src="{{ item.pics_big || '/images/defalut.png' }}"
+      data-current="{{ item.pics_big || '/images/defalut.png' }}"
+      bindtap="previewImg"></image>
     </swiper-item>
   </block>
 </swiper>
@@ -16,10 +20,10 @@
 <!-- 商品详细内容 -->
 <view class="goodsinfo">
 
-  <view class="goodsinfo-price">￥222</view>
+  <view class="goodsinfo-price">￥{{ goodsinfo.goods_price }}</view>
 
   <view class="goodsinfo-title">
-    <view class="goodsinfo-title-text">普联（TP-LINK） TL-SG1008D 8口千兆交换机 千兆钢壳1000M网络监控交换机</view>
+    <view class="goodsinfo-title-text">{{ goodsinfo.goods_name }}</view>
     <view class="goodsinfo-title-collect">
       <text class="goodsinfo-title-collect-icon iconfont icon-shoucang"></text>
       <text class="goodsinfo-title-collect-text">收藏</text>
@@ -30,7 +34,7 @@
 
   <view class="goodsinfo-richtext">
     <view>图片详情</view>
-    <rich-text nodes='<div class=\"lazyimg\"><p><img data-src=\"//image.suning.cn/uimg/sop/richtext/153258883012390448514464.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/153258883012390448514464.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/187379396283244284595910.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/187379396283244284595910.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/330226174196853549816760.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/330226174196853549816760.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/147793003286806540496200.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/147793003286806540496200.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/113025839021063066745489.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/113025839021063066745489.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/121693045635991262691710.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/121693045635991262691710.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/636668999907206545539900.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/636668999907206545539900.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/603167757830963862520000.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/603167757830963862520000.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/richtext/130619400016942688218452.gif?from=mobile\" alt=\"\" src=\"//image.suning.cn/uimg/sop/richtext/130619400016942688218452.gif?from=mobile\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/177224012528849617737010_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/177224012528849617737010_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/173042226613348206794360_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/173042226613348206794360_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"><img data-src=\"//image.suning.cn/uimg/sop/commodity/416579077129509746521810_x.jpg?from=mobile&amp;format=80q.webp\" alt=\"\" src=\"//image.suning.cn/uimg/sop/commodity/416579077129509746521810_x.jpg?from=mobile&format=80q.webp\" width=\"100%\" height=\"auto\"></p></div>'></rich-text>
+    <rich-text nodes="{{ goods_introduce }}"></rich-text>
   </view>
 </view>
 
@@ -51,6 +55,6 @@
     <text class="tool-icon-iconfont iconfont icon-gouwuche"></text>
     <view>购物车</view>
   </view>
-  <view class="tool-button">加入购物车</view>
+  <view class="tool-button" bindtap="addToCart">加入购物车</view>
   <view class="tool-button">立即购买</view>
 </view>
