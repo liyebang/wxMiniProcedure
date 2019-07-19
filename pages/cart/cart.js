@@ -12,7 +12,13 @@ Page({
       addressInfo: ''
     },
     // 购物车列表
-    cartlist:{}
+    cartlist:{},
+    // 是否全选
+    isSelectAll: true,
+    // 选中的种类数量
+    selectType: 0,
+    // 选中的价格合计
+    total: 0
   },
 
   /**
@@ -35,8 +41,36 @@ Page({
   onShow: function () {
     this.setData({
       address: wx.getStorageSync('address') || {},
-      cartlist: wx.getStorageSync('cartlist') || {}
+      cartlist: wx.getStorageSync('cartlist') || {},
     })
+
+    // 加载时确定全选按钮是否激活
+    if (Object.keys(this.data.cartlist).length !== 0){
+      let selectSwitch = true;
+
+      Object.keys(this.data.cartlist).forEach(item => {
+        if (this.data.cartlist[item].selected === false) {
+          this.setData({ isSelectAll: false })
+          selectSwitch = false;
+        }
+      })
+
+      if (selectSwitch) {
+        this.setData({ isSelectAll: true })
+      }
+    }
+
+    // 加载时计算选择的种类和总价
+    let selectType = 0, total = 0;
+
+    Object.keys(this.data.cartlist).forEach(item => {
+      if (this.data.cartlist[item].selected === true) {
+        selectType += 1;
+        total += (this.data.cartlist[item].count * this.data.cartlist[item].goods_price);
+      }
+    })
+
+    this.setData({ selectType, total })
   },
 
   /**
@@ -133,5 +167,90 @@ Page({
         wx.setStorageSync('address', address);
       }
     })
+  },
+
+  // 统一修改购物车本地数据和data中的数据
+  setNewCartlise(cartlist){
+    let selectType = 0, total = 0;
+
+    Object.keys(cartlist).forEach( item => {
+      if (cartlist[item].selected === true){
+        selectType += 1;
+        total += (cartlist[item].count * cartlist[item].goods_price);
+      }
+    })
+
+    this.setData({ cartlist, selectType, total });
+    wx.setStorageSync('cartlist', cartlist)
+  },
+
+  // 跳转到商品详情
+  toGoodsinfo(e){
+    let { id } = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: `/pages/goodsinfo/goodsinfo?goods_id=${id}`,
+    })
+  },
+
+  // 商品数量加减
+  countHandle(e){
+    let { id, num } = e.currentTarget.dataset;
+    let cartlist = {...this.data.cartlist};
+    cartlist[id].count += +num;
+
+    // 如果商品数量为0，询问客户是否需要删除该商品
+    if (cartlist[id].count === 0){
+      wx.showModal({
+        title: '是否需要删除该商品',
+        success: res =>{
+          if (res.confirm === true){
+            delete cartlist[id]
+          }
+          if (res.cancel === true){
+            cartlist[id].count = 1
+          }
+          this.setNewCartlise(cartlist);
+        }
+      })
+    }
+
+    this.setNewCartlise(cartlist);
+  },
+
+  // 点击单个商品选择按钮
+  selectOne(e){
+    let { id } = e.currentTarget.dataset;
+    let cartlist = { ...this.data.cartlist};
+    cartlist[id].selected = !cartlist[id].selected;
+
+    // 开关
+    let selectSwitch = true;
+
+    Object.keys(cartlist).forEach( item =>{
+      if (cartlist[item].selected === false){
+        this.setData({ isSelectAll: false })
+        selectSwitch = false;
+      }
+    })
+
+    if (selectSwitch){
+      this.setData({ isSelectAll: true })
+    }
+
+    this.setNewCartlise(cartlist)
+  },
+
+  // 点击全选按钮
+  selectAll(){
+    if (Object.keys(this.data.cartlist).length === 0){
+      return;
+    }
+
+    this.setData({ isSelectAll: !this.data.isSelectAll });
+    let cartlist = { ...this.data.cartlist };
+    Object.keys(cartlist).forEach( item => {
+      cartlist[item].selected = this.data.isSelectAll;
+    })
+    this.setNewCartlise(cartlist)
   }
 })

@@ -29,9 +29,9 @@
     <block wx:for="{{ cartlist }}" wx:key="goods_id">
       <view class="cartlist-content-item">
         <view class="cartlist-content-item-left">
-          <text class="iconfont {{ item.selected? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
+          <text class="iconfont {{ item.selected? 'icon-xuanzhong': 'icon-xuanzhong1' }}"  bindtap="selectOne" data-id="{{ item.goods_id }}"></text>
         </view>
-        <view class="cartlist-content-item-right">
+        <view class="cartlist-content-item-right" bindtap="toGoodsinfo" data-id="{{ item.goods_id }}">
           <image class="cartlist-content-item-right-img" src="{{ item.goods_small_logo }}"></image>
           <view class="cartlist-content-item-right-info">
             <view class="cartlist-content-item-right-info-title">{{ item.goods_name }}</view>
@@ -43,9 +43,9 @@
 
         <!-- 数量加减工具栏 -->
         <view class="cartlist-content-item-tool">
-          <view class="cartlist-content-item-tool-button">-</view>
+          <view class="cartlist-content-item-tool-button" data-id="{{ item.goods_id }}"  data-num="-1" bindtap="countHandle">-</view>
           <view class="cartlist-content-item-tool-num">{{ item.count }}</view>
-          <view class="cartlist-content-item-tool-button">+</view>
+          <view class="cartlist-content-item-tool-button" data-id="{{ item.goods_id }}"  data-num="1" bindtap="countHandle">+</view>
         </view>
       </view>
     </block>
@@ -61,16 +61,16 @@
 <!-- 结算工具栏 -->
 <view class="tool">
   <view class="tool-left">
-    <text class="iconfont {{ true? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
+    <text class="iconfont {{ isSelectAll? 'icon-xuanzhong': 'icon-xuanzhong1' }}" bindtap="selectAll"></text>
   </view>
   <view class="tool-right">
     <view class="tool-right-text">全选</view>
     <view class="tool-right-priceinfo">
-      <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">55515.00</text></text></view>
+      <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">{{ total }}</text></text></view>
       <view class="tool-right-priceinfo-tips">包含运费</view>
     </view>
     <view class="tool-right-account">
-      结算<text hidden="{{ false }}">(3)</text>
+      结算<text hidden="{{ selectType === 0 }}">({{ selectType }})</text>
     </view>
   </view>
 </view>
