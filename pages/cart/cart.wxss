@@ -26,7 +26,7 @@
   border-right: 1rpx solid #999;
   position: absolute;
   top: 13rpx;
-  right: -210rpx;
+  right: -165rpx;
   transform: rotateZ(45deg)
 }
 
@@ -92,6 +92,7 @@
   height: 160rpx;
   margin-right: 20rpx;
   background-color: pink;
+  flex-shrink: 0;
 }
 
 .cartlist-content-item-right-info{

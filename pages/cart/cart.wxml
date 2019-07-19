@@ -1,10 +1,10 @@
 <scroll-view scroll-y class="cartlist-content">
  <!-- 收货信息 -->
-<view class="receiving">
-  <view class="receiving-info"  wx:if="{{true}}">
-    <text class="receiving-info-person" space="emsp">收货人: 例   11111111111</text>
+<view class="receiving" bindtap="chooseAddress">
+  <view class="receiving-info"  wx:if="{{ address.userName }}">
+    <text class="receiving-info-person" space="emsp">收货人: {{ address.userName }}   {{ address.telNumber }}</text>
     <view class="receiving-info-address">
-      收货地址: 广州市识别广州市识别广州市识别广州市识别广州市识别广州市识别广州市识别
+      收货地址: {{ address.addressInfo }}
     </view>
   </view>
   
@@ -26,17 +26,17 @@
 
   <!-- 购物车列表内容 -->
   
-    <block wx:for="{{ 5 }}" wx:key="">
+    <block wx:for="{{ cartlist }}" wx:key="goods_id">
       <view class="cartlist-content-item">
         <view class="cartlist-content-item-left">
-          <text class="iconfont {{ true? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
+          <text class="iconfont {{ item.selected? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
         </view>
         <view class="cartlist-content-item-right">
-          <image class="cartlist-content-item-right-img"></image>
+          <image class="cartlist-content-item-right-img" src="{{ item.goods_small_logo }}"></image>
           <view class="cartlist-content-item-right-info">
-            <view class="cartlist-content-item-right-info-title">哈哈哈哈哈哈哈哈哈哈或或</view>
+            <view class="cartlist-content-item-right-info-title">{{ item.goods_name }}</view>
             <view class="cartlist-content-item-right-info-price">
-              ￥<text>2211</text>
+              ￥<text>{{ item.goods_price }}</text>
             </view>
           </view>
         </view>
@@ -44,7 +44,7 @@
         <!-- 数量加减工具栏 -->
         <view class="cartlist-content-item-tool">
           <view class="cartlist-content-item-tool-button">-</view>
-          <view class="cartlist-content-item-tool-num">2</view>
+          <view class="cartlist-content-item-tool-num">{{ item.count }}</view>
           <view class="cartlist-content-item-tool-button">+</view>
         </view>
       </view>
