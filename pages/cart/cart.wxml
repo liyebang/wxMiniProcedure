@@ -1,1 +1,76 @@
-<view>这是购物车页面</view>
+<scroll-view scroll-y class="cartlist-content">
+ <!-- 收货信息 -->
+<view class="receiving">
+  <view class="receiving-info"  wx:if="{{true}}">
+    <text class="receiving-info-person" space="emsp">收货人: 例   11111111111</text>
+    <view class="receiving-info-address">
+      收货地址: 广州市识别广州市识别广州市识别广州市识别广州市识别广州市识别广州市识别
+    </view>
+  </view>
+  
+  <view class="receiving-add" wx:else>
+    添加收货地址
+  </view>
+</view>
+
+<view class="divider"></view>
+
+<!-- 购物车列表 -->
+<view class="cartlist">
+
+  <!-- 购物车列表标题 -->
+  <view class="cartlist-title">
+    <text class="iconfont icon-dianpu"></text>
+    <text>优购生活馆</text>
+  </view>
+
+  <!-- 购物车列表内容 -->
+  
+    <block wx:for="{{ 5 }}" wx:key="">
+      <view class="cartlist-content-item">
+        <view class="cartlist-content-item-left">
+          <text class="iconfont {{ true? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
+        </view>
+        <view class="cartlist-content-item-right">
+          <image class="cartlist-content-item-right-img"></image>
+          <view class="cartlist-content-item-right-info">
+            <view class="cartlist-content-item-right-info-title">哈哈哈哈哈哈哈哈哈哈或或</view>
+            <view class="cartlist-content-item-right-info-price">
+              ￥<text>2211</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 数量加减工具栏 -->
+        <view class="cartlist-content-item-tool">
+          <view class="cartlist-content-item-tool-button">-</view>
+          <view class="cartlist-content-item-tool-num">2</view>
+          <view class="cartlist-content-item-tool-button">+</view>
+        </view>
+      </view>
+    </block>
+  
+</view>
+
+</scroll-view>
+
+<!-- 占位用盒子 -->
+<!-- <view style="height:160rpx;background-color: #f4f4f4;"></view> -->
+
+
+<!-- 结算工具栏 -->
+<view class="tool">
+  <view class="tool-left">
+    <text class="iconfont {{ true? 'icon-xuanzhong': 'icon-xuanzhong1' }}"></text>
+  </view>
+  <view class="tool-right">
+    <view class="tool-right-text">全选</view>
+    <view class="tool-right-priceinfo">
+      <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">55515.00</text></text></view>
+      <view class="tool-right-priceinfo-tips">包含运费</view>
+    </view>
+    <view class="tool-right-account">
+      结算<text hidden="{{ false }}">(3)</text>
+    </view>
+  </view>
+</view>

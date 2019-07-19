@@ -5,3 +5,9 @@ image{
 
 /* 引入字体图标 */
 @import "/style/iconfont.wxss"
+
+/* 模仿间隔的占位盒子 */
+.divider{
+  height: 20rpx;
+  background-color: #f4f4f4;
+}

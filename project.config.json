@@ -43,10 +43,9 @@
 			"current": 0,
 			"list": [
 				{
-					"id": 0,
-					"name": "pages/goodsinfo/goodsinfo",
-					"pathName": "pages/goodsinfo/goodsinfo",
-					"query": "goods_id=31034",
+					"id": -1,
+					"name": "pages/cart/cart",
+					"pathName": "pages/cart/cart",
 					"scene": null
 				}
 			]

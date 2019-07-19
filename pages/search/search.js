@@ -93,7 +93,7 @@ Page({
 
     // 利用定时器减少发起请求的次数，减少服务器压力
     timer = setTimeout( () =>{
-      if (this.data.serachIpunt !== '') {
+      if (this.data.serachIpunt.trim() !== '') {
         request({ url: "goods/qsearch", data: { query: this.data.serachIpunt } })
           .then(res => {
             this.setData({ tipslist: res })

@@ -100,7 +100,8 @@ Page({
     let cartlist = wx.getStorageSync("cartlist") || {};
 
     // 如果购物车之间没有添加过这个商品，就增加这个商品，并加上数量以及选中状态
-    if (Object.keys(cartlist).indexOf(`${goods_id}`) === -1 ){
+    // if (Object.keys(cartlist).indexOf(`${goods_id}`) === -1 ){
+    if (!cartlist[goods_id]){
       let goodsitem = {
         goods_id,
         goods_small_logo,
@@ -117,5 +118,12 @@ Page({
     }
 
     wx.setStorageSync('cartlist', cartlist);
+
+    // 提示用户添加成功,并防止用户短时间狂点
+    wx.showToast({
+      title: '添加成功',
+      duration: 700,
+      mask: true
+    })
   }
 })

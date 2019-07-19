@@ -51,10 +51,10 @@
     <text class="tool-icon-iconfont iconfont icon-lianxikefu"></text>
     <view>联系客服</view>
   </view>
-  <view class="tool-icon">
+  <navigator class="tool-icon" url="/pages/cart/cart" open-type="switchTab">
     <text class="tool-icon-iconfont iconfont icon-gouwuche"></text>
     <view>购物车</view>
-  </view>
+  </navigator>
   <view class="tool-button" bindtap="addToCart">加入购物车</view>
   <view class="tool-button">立即购买</view>
 </view>

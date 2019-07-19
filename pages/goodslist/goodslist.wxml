@@ -21,7 +21,7 @@
   <!-- 详情 -->
   <view class="content-goods">
     <block wx:for="{{ goodslist }}" wx:key="goods_id">
-      <view class="content-goods-item">
+      <navigator class="content-goods-item" url="/pages/goodsinfo/goodsinfo?goods_id={{ item.goods_id }}">
         <view>
           <image 
           class="content-goods-item-img"
@@ -35,7 +35,7 @@
             <text class="content-goods-item-info-price-num">{{ item.goods_price }}</text>
           </view>
         </view>
-      </view>
+      </navigator>
     </block>
   </view>
 </view>
