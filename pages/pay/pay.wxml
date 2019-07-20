@@ -1,2 +1,3 @@
-<!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<view class="receiving">
+  <address address="{{ address }}"/>
+</view>

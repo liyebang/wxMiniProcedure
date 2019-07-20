@@ -77,6 +77,10 @@
   flex-shrink: 0;
 }
 
+.noGoods{
+  text-align: center;
+}
+
 /* .cartlist-content-item-right{
   flex: 1;
   display: flex;

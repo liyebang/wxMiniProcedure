@@ -1,11 +1,11 @@
- <view class="receiving-info"  wx:if="{{ address.userName }}">
+ <view class="receiving-info"  wx:if="{{ address.userName }}" bindtap="chooseAddress">
     <text class="receiving-info-person" space="emsp">收货人: {{ address.userName }}   {{ address.telNumber }}</text>
     <view class="receiving-info-address">
       收货地址: {{ address.addressInfo }}
     </view>
   </view>
   
-  <view class="receiving-add" wx:else>
+  <view class="receiving-add" wx:else bindtap="chooseAddress">
     添加收货地址
   </view>
 

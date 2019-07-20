@@ -1,6 +1,6 @@
 <scroll-view scroll-y class="cartlist-content">
  <!-- 收货信息 -->
-<view class="receiving" bindtap="chooseAddress">
+<view class="receiving">
   <!-- <view class="receiving-info"  wx:if="{{ address.userName }}">
     <text class="receiving-info-person" space="emsp">收货人: {{ address.userName }}   {{ address.telNumber }}</text>
     <view class="receiving-info-address">
@@ -17,7 +17,7 @@
 <view class="divider"></view>
 
 <!-- 购物车列表 -->
-<view class="cartlist">
+<view class="cartlist" wx:if="{{ isShowList }}">
 
   <!-- 购物车列表标题 -->
   <view class="cartlist-title">
@@ -55,6 +55,8 @@
     </block>
   
 </view>
+
+<view class="noGoods"  wx:else>未添加任何商品</view>
 
 </scroll-view>
 

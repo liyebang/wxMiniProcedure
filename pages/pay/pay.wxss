@@ -1,1 +1,5 @@
-/* pages/pay/pay.wxss */
+.receiving{
+  min-height: 210rpx;
+  border-bottom: 14rpx solid rgba(0,0,255,.3);
+  background: #fff;
+}
