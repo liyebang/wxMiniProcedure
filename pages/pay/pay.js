@@ -82,5 +82,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  // 点击结算
+  handlePay(){
+    
+    // 1. 先检验本地有没有 token，没有 token 就跳转到登录授权
+    const token = wx.getStorageSync("token");
+
+    if (!token){
+      wx.navigateTo({
+        url: '/pages/auth/auth',
+      });
+      // 没有授权就退出函数
+      return;
+    }
   }
 })

@@ -7,7 +7,8 @@
     "pages/search/search",
     "pages/goodslist/goodslist",
     "pages/goodsinfo/goodsinfo",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/auth/auth"
   ],
   "window": {
     "backgroundTextStyle": "dark",

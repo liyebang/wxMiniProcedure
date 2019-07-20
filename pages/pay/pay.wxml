@@ -39,7 +39,7 @@
       <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">{{ total }}</text></text></view>
       <view class="tool-right-priceinfo-tips">包含运费</view>
     </view>
-    <view class="tool-right-account" bindtap="toPay">
+    <view class="tool-right-account" bindtap="handlePay">
       结算
     </view>
   </view>
