@@ -1,7 +1,7 @@
 <scroll-view scroll-y class="cartlist-content">
  <!-- 收货信息 -->
 <view class="receiving" bindtap="chooseAddress">
-  <view class="receiving-info"  wx:if="{{ address.userName }}">
+  <!-- <view class="receiving-info"  wx:if="{{ address.userName }}">
     <text class="receiving-info-person" space="emsp">收货人: {{ address.userName }}   {{ address.telNumber }}</text>
     <view class="receiving-info-address">
       收货地址: {{ address.addressInfo }}
@@ -10,7 +10,8 @@
   
   <view class="receiving-add" wx:else>
     添加收货地址
-  </view>
+  </view> -->
+  <address address="{{ address }}"/>
 </view>
 
 <view class="divider"></view>
@@ -72,7 +73,7 @@
       <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">{{ total }}</text></text></view>
       <view class="tool-right-priceinfo-tips">包含运费</view>
     </view>
-    <view class="tool-right-account">
+    <view class="tool-right-account" bindtap="toPay">
       结算<text hidden="{{ selectType === 0 }}">({{ selectType }})</text>
     </view>
   </view>

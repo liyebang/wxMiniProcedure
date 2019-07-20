@@ -252,5 +252,26 @@ Page({
       cartlist[item].selected = this.data.isSelectAll;
     })
     this.setNewCartlise(cartlist)
+  },
+
+  // 支付
+  toPay(){
+    if (!this.data.address.userName){
+      wx.showToast({
+        title: '请选择收货地址',
+        icon: "none",
+        duration: 1000
+      })
+    } else if (this.data.selectType === 0){
+      wx.showToast({
+        title: '未选择任何商品',
+        icon: "none",
+        duration: 1000
+      })
+    }else {
+      wx.navigateTo({
+        url: '/pages/pay/pay',
+      })
+    }
   }
 })

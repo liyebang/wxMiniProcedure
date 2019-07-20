@@ -6,7 +6,8 @@
     "pages/mine/mine",
     "pages/search/search",
     "pages/goodslist/goodslist",
-    "pages/goodsinfo/goodsinfo"
+    "pages/goodsinfo/goodsinfo",
+    "pages/pay/pay"
   ],
   "window": {
     "backgroundTextStyle": "dark",

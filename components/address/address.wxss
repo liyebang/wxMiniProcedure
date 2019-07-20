@@ -1,0 +1,35 @@
+.receiving{
+  min-height: 210rpx;
+  border-bottom: 14rpx solid rgba(0,0,255,.3);
+  background: #fff;
+}
+
+.receiving-info{
+  padding: 45rpx 20rpx;
+}
+
+.receiving-info-person{
+  position: relative;
+}
+
+.receiving-info-person::after{
+  content: "";
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 1rpx solid #999;
+  border-right: 1rpx solid #999;
+  position: absolute;
+  top: 13rpx;
+  right: -165rpx;
+  transform: rotateZ(45deg)
+}
+
+.receiving-info-address{
+  margin-top:30rpx;
+  line-height: 50rpx;
+}
+
+.receiving-add{
+  line-height: 210rpx;
+  text-align: center;
+}
