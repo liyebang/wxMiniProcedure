@@ -74,9 +74,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.cartlist-content-item-right{
+/* .cartlist-content-item-right{
   flex: 1;
   display: flex;
   padding: 25rpx 0;
@@ -117,6 +118,11 @@
 
 .cartlist-content-item-right-info-price text{
   font-size: 45rpx;
+} */
+
+.cartlist-content-item image{
+  width: 160rpx;
+  height: 160rpx;
 }
 
 .iconfont.icon-xuanzhong{

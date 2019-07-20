@@ -1,0 +1,15 @@
+<navigator class="content-goods-item" url="/pages/goodsinfo/goodsinfo?goods_id={{ item.goods_id }}">
+        <view>
+          <image 
+          class="content-goods-item-img"
+          src="{{ item.goods_small_logo || '/images/default.png' }}"
+          ></image>
+        </view>
+        <view class="content-goods-item-info">
+          <view class="content-goods-item-info-title">{{ item.goods_name }}</view>
+          <view class="content-goods-item-info-price">
+            ￥
+            <text class="content-goods-item-info-price-num">{{ item.goods_price }}</text>
+          </view>
+        </view>
+      </navigator>

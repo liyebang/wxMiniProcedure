@@ -1,0 +1,35 @@
+.content-goods-item{
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.content-goods-item-img{
+  margin-right: 26rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.content-goods-item-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-goods-item-info-title{
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal!important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.content-goods-item-info-price{
+  color: #eb4956;
+}
+
+.content-goods-item-info-price-num{
+  font-size: 50rpx;
+}

@@ -14,7 +14,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.4",
-	"appid": "wx3d530fce90db3f7a",
+	"appid": "wxfb52f2d7b2f6123a",
 	"projectname": "yougou",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -40,15 +40,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/cart/cart",
-					"pathName": "pages/cart/cart",
-					"scene": null
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

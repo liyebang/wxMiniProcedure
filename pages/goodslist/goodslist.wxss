@@ -40,7 +40,7 @@
   padding: 0 20rpx;
 }
 
-.content-goods-item{
+/* .content-goods-item{
   display: flex;
   padding: 30rpx 0;
   border-bottom: 1rpx solid #ddd;
@@ -74,4 +74,4 @@
 
 .content-goods-item-info-price-num{
   font-size: 50rpx;
-}
+} */

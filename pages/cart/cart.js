@@ -184,13 +184,13 @@ Page({
     wx.setStorageSync('cartlist', cartlist)
   },
 
-  // 跳转到商品详情
-  toGoodsinfo(e){
-    let { id } = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `/pages/goodsinfo/goodsinfo?goods_id=${id}`,
-    })
-  },
+  // // 跳转到商品详情
+  // toGoodsinfo(e){
+  //   let { id } = e.currentTarget.dataset;
+  //   wx.navigateTo({
+  //     url: `/pages/goodsinfo/goodsinfo?goods_id=${id}`,
+  //   })
+  // },
 
   // 商品数量加减
   countHandle(e){

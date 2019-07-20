@@ -31,7 +31,8 @@
         <view class="cartlist-content-item-left">
           <text class="iconfont {{ item.selected? 'icon-xuanzhong': 'icon-xuanzhong1' }}"  bindtap="selectOne" data-id="{{ item.goods_id }}"></text>
         </view>
-        <view class="cartlist-content-item-right" bindtap="toGoodsinfo" data-id="{{ item.goods_id }}">
+
+        <!-- <view class="cartlist-content-item-right" bindtap="toGoodsinfo" data-id="{{ item.goods_id }}">
           <image class="cartlist-content-item-right-img" src="{{ item.goods_small_logo }}"></image>
           <view class="cartlist-content-item-right-info">
             <view class="cartlist-content-item-right-info-title">{{ item.goods_name }}</view>
@@ -39,7 +40,9 @@
               ￥<text>{{ item.goods_price }}</text>
             </view>
           </view>
-        </view>
+        </view> -->
+
+        <goods-item item="{{ item }}" />
 
         <!-- 数量加减工具栏 -->
         <view class="cartlist-content-item-tool">

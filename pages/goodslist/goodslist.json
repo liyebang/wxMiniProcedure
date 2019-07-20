@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "goods-item": "/components/goods-item/goods-item"
+  },
   "navigationBarTitleText": "搜索",
   "enablePullDownRefresh": true,
   "backgroundColor": "#eee"
