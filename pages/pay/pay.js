@@ -11,16 +11,27 @@ Page({
       addressInfo: ''
     },
     // 购物车列表
-    cartlist: {}
+    cartlist: {},
+    // 价格总计
+    total: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let cartlist = wx.getStorageSync('cartlist'), total = 0;
+
+    Object.values(cartlist).forEach( item =>{
+      if (item.selected){
+        total += (item.count * item.goods_price)
+      }
+    });
+
     this.setData({
       address: wx.getStorageSync('address') || {},
-      cartlist: wx.getStorageSync('cartlist') || {},
+      cartlist,
+      total
     })
   },
 

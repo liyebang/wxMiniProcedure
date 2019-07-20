@@ -1,3 +1,46 @@
+<!-- 头部收货地址 -->
 <view class="receiving">
   <address address="{{ address }}"/>
+</view>
+
+<view class="cartlist">
+
+  <!-- 购物车列表标题 -->
+  <view class="cartlist-title">
+    <text class="iconfont icon-dianpu"></text>
+    <text>优购生活馆</text>
+  </view>
+
+  <!-- 购物车列表内容 -->
+  
+    <block wx:for="{{ cartlist }}" wx:key="goods_id">
+      <view class="cartlist-content-item">
+      
+        <goods-item item="{{ item }}"  class="cartlist-content-item-component" 
+        wx:if="{{ item.selected }}"
+        />
+
+        <!-- 数量加减工具栏 -->
+        <view class="cartlist-content-item-tool" wx:if="{{ item.selected }}">
+
+          <view class="cartlist-content-item-tool-num">X{{ item.count }}</view>
+
+        </view>
+      </view>
+    </block>
+  
+</view>
+
+
+<!-- 底部支付工具栏 -->
+<view class="tool">
+  <view class="tool-right">
+    <view class="tool-right-priceinfo">
+      <view>合计: <text class="tool-right-priceinfo-icon">￥<text class="tool-right-priceinfo-num">{{ total }}</text></text></view>
+      <view class="tool-right-priceinfo-tips">包含运费</view>
+    </view>
+    <view class="tool-right-account" bindtap="toPay">
+      结算
+    </view>
+  </view>
 </view>
