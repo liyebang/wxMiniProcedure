@@ -92,15 +92,16 @@ Page({
   async handlePay(){
     
     // 1. 先检验本地有没有 token，没有 token 就跳转到登录授权
-    const token = wx.getStorageSync("token");
+    // const token = wx.getStorageSync("token");
 
-    if (!token){
-      wx.navigateTo({
-        url: '/pages/auth/auth',
-      });
-      // 没有授权就退出函数
-      return;
-    }
+    // if (!token){
+    //   wx.navigateTo({
+    //     url: '/pages/auth/auth',
+    //   });
+    //   // 没有授权就退出函数
+    //   return;
+    // }
+    // 已经封装到请求函数里面
 
     // 支付流程 - 要按顺序执行 - 如何从上往下执行 - 可以封装成方法，内部返回 Promise 对象
 
@@ -132,15 +133,51 @@ Page({
       "goods": goods
     }
 
-    // 1. 创建订单，获取订单编号
-    const {
-      order_number
-    } = (await this.getOrderNumber(params));
-    console.log(order_number, '1. 创建订单，获取订单编号');
-    // 2. 根据订单编号，准备预支付
-    console.log("2. 根据订单编号，准备预支付");
-    // 3. 根据预支付数据发起微信支付
-    // 4. 微信支付成功后，查询订单，更新订单状态
+    try{
+      // 1. 创建订单，获取订单编号
+      const {
+        order_number
+      } = (await this.getOrderNumber(params));
+      // console.log(order_number, '1. 创建订单，获取订单编号');
+      // 2. 根据订单编号，准备预支付
+      const { pay } = await this.getPrePay(order_number);
+      console.log(pay, "2. 根据订单编号，准备预支付");
+      // 3. 根据预支付数据发起微信支付
+      const res = await this.getRequestPayment(pay);
+      console.log(res, "3. 根据预支付数据发起微信支付");
+      // 4. 微信支付成功后，查询订单，更新订单状态
+      const res2 = await this.getOrderCheck(order_number);
+      console.log(res2, '4. 微信支付成功后，查询订单，更新订单状态');
+
+      // try 如果走到最后，说明支付成功，提示用户
+      wx.showToast({
+        title: "支付成功"
+      });
+
+      // 删除本地存储选中的商品的数据
+      // 获取 cartList 所有键名称，也就是 id
+      Object.keys(cartlist)
+        // 过滤购物车数据中，选中状态商品的 id 值
+        .filter(id => cartlist[id].selected)
+        // 遍历选中状态 id 值，从购物车数据中删除。
+        .forEach(id => {
+          delete cartlist[id]
+        });
+
+      // 把新的购物车数据更新到本地存储
+      wx.setStorageSync('cartlist', cartlist);
+
+      wx.redirectTo({
+        url: "/pages/order/order?type=3"
+      });
+    }catch(err){
+      console.log('捕获报错信息', err);
+      wx.showToast({
+        title: '支付失败',
+        icon: 'none'
+      });
+    }
+
   },
 
   // 1.创建订单，获取订单编号
@@ -157,6 +194,43 @@ Page({
       },
       data: {
         ...params
+      }
+    })
+  },
+
+  // 2. 根据订单编号，准备预支付
+  getPrePay(order_number){
+    return request({
+      url: 'my/orders/req_unifiedorder',
+      method: "POST",
+      data:{
+        order_number
+      }
+    })
+  },
+
+  // 3. 根据预支付数据发起微信支付
+  getRequestPayment(pay){
+    return new Promise((resolve, reject) => {
+      wx.requestPayment({
+        ...pay,
+        success: (res) => {
+          resolve(res)
+        },
+        fail: (res) => {
+          reject(res)
+        }
+      })
+    })
+  },
+
+  // 4. 微信支付成功后，查询订单，更新订单状态
+  getOrderCheck(order_number){
+    return request({
+      url: 'my/orders/chkOrder',
+      method: 'POST',
+      data: {
+        order_number
       }
     })
   }
